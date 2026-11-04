@@ -1,23 +1,40 @@
 {
-  "name": "whatsapp-bouncer",
+  "name": "bouncer-tool",
   "version": "1.0.0",
-  "private": true,
+  "description": "Auto Bouncer & Moderator: approved-number checks, auto-remove and message rules for Chat Hackers",
   "type": "module",
-  "description": "Combined participant checks and message moderation for Chat Hackers",
-  "engines": {
-    "node": ">=22.16.0"
-  },
   "scripts": {
-    "start": "node server.mjs",
-    "dev": "node --watch server.mjs",
-    "build": "node --check server.mjs && node --check bouncer.mjs && node --check operations.mjs && node --check handler.mjs && node --check storage.mjs && node --check api/index.mjs && node --check moderation.mjs && node --check moderation-operations.mjs && node --check hub-members.mjs && node --check public/app.js",
-    "test": "node --test tests/*.test.mjs",
-    "setup:secrets": "node scripts/setup-secrets.mjs"
+    "test": "vitest run src",
+    "build": "npx tsc",
+    "start": "node dist/src/index.js",
+    "dev": "npm run build && npm start",
+    "dev-web": "vite web",
+    "build-web": "vite build web"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@neondatabase/serverless": "1.2.0"
+    "@duckdb/node-api": "^1.4.2-r.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router": "^7.8.2",
+    "typescript": "^6.0.3",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
-    "@electric-sql/pglite": "0.5.10"
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react-swc": "^4.0.1",
+    "vite": "^7.1.3",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vitest": "^3.2.7"
+  },
+  "allowScripts": {
+    "@swc/core@1.16.21": true,
+    "esbuild@0.28.2": true
   }
 }

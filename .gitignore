@@ -5,3 +5,8 @@
 data/
 node_modules/
 *.log
+dist/
+web/dist/
+bouncer.json
+*_duckdb.db
+*_duckdb.db.wal

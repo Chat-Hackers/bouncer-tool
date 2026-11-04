@@ -1,7 +1,0 @@
-.git
-.env*
-data
-tests
-node_modules
-*.zip
-*.png
